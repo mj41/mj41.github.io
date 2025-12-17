@@ -1,39 +1,85 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-    <title>mj41 @ GitHub</title>
-    
-    <style type="text/css">
-        body {
-        margin-top: 1.0em;
-        background-color: #97cffd;
-          font-family: "Helvetica,Arial,FreeSans";
-        color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-        h1 { font-size: 3.8em; color: #683002; margin-bottom: 3px; }
-        h1 .small { font-size: 0.4em; }
-        h1 a { text-decoration: none }
-        h2 { font-size: 1.5em; color: #683002; }
-    h3 { text-align: center; color: #683002; }
-    a { color: #683002; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-        pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-    </style>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal website of Michal Jurosz (mj41) - Complexity whisperer and software engineer.">
+    <title>Michal Jurosz | mj41</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <a href="http://mj41.cz/wiki/Michal_Jurosz">mj41.cz</a>
+    <div class="container">
+        <header class="profile-header">
+            <img src="images/mj41logo.png" alt="MJ" class="logo">
+            <h1>Michal Jurosz</h1>
+            <p class="username">@mj41</p>
+            <p class="tagline">
+                Complexity whisperer · Cleartographer of stigmergic chaos · Professional yak shaver · ∞-1 tools from shipping · IRL dad.exe · URL dreamer
+            </p>
+            <p class="location">Czech Republic, Třinec</p>
+            <p class="location company">Akamai</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/mj41" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://twitter.com/mj41cz" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="https://www.linkedin.com/in/jurosz/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://blog.mj41.cz/" target="_blank" rel="noopener noreferrer">Medium</a>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>About Me</h2>
+            <p>
+                I started programming back in the previous millennium. Preparation before the computer club was done offline on paper. I enjoyed it a lot — bits and bytes, exact logical operations, clear commands that the computer executed without objection.
+            </p>
+            <p>
+                Software and the Internet gradually permeated the world of people. Open Source and large proprietary software projects became dependent on team collaboration. Development and operation of software systems became my profession. Over time, these became complex distributed systems with high demands on security and reliability.
+            </p>
+            <blockquote>
+                "The universe is made of stories, not of atoms."
+                <footer>— Muriel Rukeyser, The Speed of Darkness</footer>
+            </blockquote>
+            <p>
+                After studying cybernetics, I never returned to robots in my professional life, but something remained. To understand colleagues, the universe, and everything... I began systematically searching for useful mental models. Modeling the cooperation of living and non-living agents and observing their intertwined stories (processes) became my passion.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Programming</h2>
+            <p>
+                One of my very first programs, written in school year 1991/1992 when I was 11. I carefully wrote this in my notebook after a computer club. The code is in BASIC-G for the <a href="https://en.wikipedia.org/wiki/PMD_85">PMD 85</a> — a Czechoslovak 8-bit computer. MHB 8080A (Intel 8080 clone) was manufactured by Tesla Peišťany in 1985–1988, at 2.048 MHz, 48 kB RAM, 4 kB ROM, B/W TV output with resolution 288×256 and optional Tape recorder.
+            </p>
+            <div class="code-and-image">
+                <div class="code-block pmd-screen">
+                    <div><span class="line-num">10&nbsp;</span><span class="keyword">Gclear</span></div>
+                    <div><span class="line-num">20&nbsp;</span>sl = <span class="number">0</span></div>
+                    <div><span class="line-num">30&nbsp;</span>Text$ = <span class="string">"Pepo čau"</span></div>
+                    <div><span class="line-num">40&nbsp;</span><span class="keyword">Pause</span> <span class="number">5</span></div>
+                    <div><span class="line-num">50&nbsp;</span><span class="keyword">Print at</span> sl, <span class="number">0</span>; Text$</div>
+                    <div><span class="line-num">60&nbsp;</span>sl = sl + <span class="number">1</span></div>
+                    <div><span class="line-num">70&nbsp;</span><span class="keyword">Goto</span> <span class="number">20</span></div>
+                </div>
+                <div class="notebook-image">
+                    <img src="images/program-1-web.jpg" alt="My first program - handwritten BASIC code in notebook">
+                </div>
+            </div>
+            <p>
+                I remember writing programs at home on paper and then frantically typing them in during the club sessions. Usually, I couldn't save the program to a cassette tape, so I had to type it all over again the next week. I used an pen eraser to fix bugs.
+            </p>
+            <p>
+                After the Velvet Revolution in Czechoslovakia, I convinced my great-grandmother to take part in <a href="https://en.wikipedia.org/wiki/Voucher_privatization">Voucher privatization</a>. With the money I received, my parents bought me my first second-hand computer: an <a href="https://en.wikipedia.org/wiki/I386#80386SX">386SX</a>, 20 MHz (Turbo Mode), 4 MB RAM, a 40 MB hard drive and <a href="https://en.wikipedia.org/wiki/Floppy_disk#5%C2%BC-inch">5¼-inch floppy drive</a>. It was the MS-DOS and Turbo Pascal era — no internet. I learned programming from books and magazines. Also enjoyed <a href="https://en.wikipedia.org/wiki/Dune_II">Dune II</a>, <a href="https://en.wikipedia.org/wiki/The_Settlers">Settlers</a>, <a href="https://en.wikipedia.org/wiki/Lemmings_(video_game)">Lemmings</a>, <a href="https://en.wikipedia.org/wiki/Prince_of_Persia_(1989_video_game)">Prince of Persia</a> and other games.
+            </p>
+            <p>
+                One of my classmates had an older friend at university who lent me a floppy disk containing Pascal code to switch the screen into graphics mode, plus some assembly to read the mouse cursor position and button states. I still remember how fascinated I was when I finally got it working.
+            </p>
+        </section>
+
+        <footer class="footer">
+            <p>© 2025 Michal Jurosz</p>
+        </footer>
+    </div>
 </body>
 </html>
