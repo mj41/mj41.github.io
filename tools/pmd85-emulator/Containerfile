@@ -1,0 +1,18 @@
+FROM debian:bookworm-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential autoconf automake pkg-config libsdl2-dev \
+        xvfb xdotool x11-utils imagemagick \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY gpmd /src
+RUN cd /src \
+    && autoreconf -vfi \
+    && ./configure --prefix=/usr/local --with-soft-render \
+    && make -j2 \
+    && make install
+
+COPY typist.py /typist.py
+COPY session.sh /session.sh
+RUN chmod +x /session.sh
+ENTRYPOINT ["/session.sh"]
