@@ -1,6 +1,6 @@
 # Running the 1991/92 program on a real PMD 85
 
-The green screens on the site are not drawn — they are captured from a PMD 85-2
+The green screens on the site (`docs/`) are not drawn — they are captured from a PMD 85-2
 running [GPMD85Emulator](https://github.com/mborik/GPMD85Emulator) with the
 BASIC-G V2.0 ROM module, with the program typed in one key at a time.
 
@@ -13,7 +13,7 @@ typed, `LIST`, `RUN`, the whole character set, and the fixed version. Turn a
 capture into the image the site uses with:
 
     python3 ../pmd85-screen.py extract out/02-typed.png ../raster/listing-1992.png
-    python3 ../pmd85-screen.py render ../raster/listing-1992.png ../../images/pmd85-screen.jpg
+    python3 ../pmd85-screen.py render ../raster/listing-1992.png ../../docs/images/pmd85-screen.jpg
 
 The container builds the emulator (SDL2 + autotools), starts it under `Xvfb`,
 and drives it with `xdotool`. Two things make the typing work:

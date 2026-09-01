@@ -12,7 +12,7 @@ PMD's pixels were wider than tall), green phosphor, scanlines, bloom, tube
 curvature, vignette and grain.
 
     python3 tools/pmd85-screen.py extract capture.png tools/raster/listing.png
-    python3 tools/pmd85-screen.py render tools/raster/listing.png images/pmd85-screen.jpg
+    python3 tools/pmd85-screen.py render tools/raster/listing.png docs/images/pmd85-screen.jpg
 """
 
 import sys
