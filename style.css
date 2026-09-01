@@ -159,6 +159,36 @@ h1 {
     padding-bottom: 10px;
 }
 
+/* Linkable sections: #about, #infinite-pm, #programming, #first-program, #sponsor */
+.section,
+.sponsor-section,
+.program-figure {
+    scroll-margin-top: 20px;
+}
+
+.anchor {
+    margin-left: 10px;
+    color: rgba(233, 69, 96, 0.55);
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.section h2:hover .anchor,
+.anchor:focus-visible {
+    opacity: 1;
+}
+
+.anchor:hover {
+    color: #e94560;
+}
+
+@media (hover: none) {
+    .anchor {
+        opacity: 0.5;
+    }
+}
+
 .section p {
     color: #c0c0c0;
     margin-bottom: 15px;
@@ -209,14 +239,6 @@ blockquote footer {
     white-space: nowrap;
 }
 
-.pmd-screen {
-    max-width: 364px;
-    padding: 25px 20px;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    background-size: 100% 4px;
-    overflow-y: hidden;
-}
-
 .code-block .line-num {
     color: #c7c110;
     display: inline-block;
@@ -236,32 +258,149 @@ blockquote footer {
     color: #79c0ff;
 }
 
-.code-and-image {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 25px;
-    align-items: start;
-    margin: 20px 0;
-}
+/* One program, four ways: the notebook page, the typeset listing, the PMD 85
+   screen and the fixed version. All four sit in one grid cell and cross-fade;
+   script.js cycles them and drives the controls. */
 
-@media (max-width: 700px) {
-    .code-and-image {
-        grid-template-columns: 1fr;
-    }
-}
-
-.code-and-image .code-block {
-    margin: 0;
-}
-
-.code-and-image .notebook-image {
-    border-radius: 10px;
+.program-figure {
+    margin: 22px 0;
+    background: #0b1410;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
 }
 
-.code-and-image .notebook-image img {
+.screen-cycle {
+    position: relative;
+    display: grid;
+    background: #0b1410;
+    cursor: pointer;
+}
+
+.screen-cycle:focus-visible {
+    outline: 2px solid #79c0ff;
+    outline-offset: 3px;
+}
+
+.screen-view {
+    grid-area: 1 / 1;
+    transition: opacity 0.9s ease;
+}
+
+.screen-view:not(.is-active) {
+    opacity: 0;
+    pointer-events: none;
+}
+
+img.screen-view {
     width: 100%;
     height: auto;
     display: block;
+    align-self: center;
+}
+
+.screen-view--art {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5% 6%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 100% 4px;
+}
+
+.screen-view--art .code-block {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+    overflow: visible;
+    font-size: min(6.2vw, 34px);
+    line-height: 1.15;
+}
+
+.screen-view--art .banner {
+    color: #6a7a70;
+}
+
+.section code {
+    font-family: 'VT323', 'Courier New', monospace;
+    font-size: 1.2em;
+    color: #e0e0e0;
+}
+
+.code-block .fixed {
+    color: #7dff9a;
+}
+
+.screen-controls {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 6px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.sc-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: none;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sc-btn:hover,
+.sc-btn:focus-visible {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.sc-play {
+    font-size: 11px;
+}
+
+.screen-controls .dots {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 5px;
+}
+
+.screen-controls .dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.screen-controls .dot.is-on {
+    background: #7dff9a;
+}
+
+.screen-caption {
+    color: #d0d6d2;
+    font-size: 1.05em;
+    line-height: 1.45;
+    margin: 0;
+    padding: 16px 20px 14px;
+    min-height: 4.4em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
