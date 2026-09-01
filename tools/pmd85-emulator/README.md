@@ -1,15 +1,17 @@
 # Running the 1991/92 program on a real PMD 85
 
-The green screens on the site (`docs/`) are not drawn — they are captured from a PMD 85-2
-running [GPMD85Emulator](https://github.com/mborik/GPMD85Emulator) with the
-BASIC-G V2.0 ROM module, with the program typed in one key at a time.
+The green screens on the site (`docs/`) are not drawn — they are captured from a
+PMD 85-2A running [GPMD85Emulator](https://github.com/mborik/GPMD85Emulator) with
+the BASIC-G V2.A ROM module, with the program typed in one key at a time. The 2A
+was the commonest model of the family (~28,600 of ~63,000 built), which is the
+only reason it is the one used here.
 
     git clone --depth 1 https://github.com/mborik/GPMD85Emulator.git gpmd
     podman build -t pmd85 .          # docker build works the same
     podman run --rm -v "$PWD/out:/out:Z" pmd85
 
-`out/` then holds window captures of every step: the boot banner, the program as
-typed, `LIST`, `RUN`, the whole character set, and the fixed version. Turn a
+`out/` then holds window captures of every step: the boot menu, the program as
+typed, `LIST`, the fixed version and its run, and the whole character set. Turn a
 capture into the image the site uses with:
 
     python3 ../pmd85-screen.py extract out/02-typed.png ../raster/listing-1992.png
@@ -29,14 +31,17 @@ and drives it with `xdotool`. Two things make the typing work:
 
 ## What the machine settled
 
-- The boot screen is exactly `BASIC-G /V2.0`, and the ROM module starts BASIC
-  by itself — no `JUMP` needed.
+- The 2A's ROM module boots to a menu — `B-BASIC  M-MONIT  P-PMD 32` — and `B`
+  gets you to BASIC, whose banner is exactly `BASIC-G /V2.A` with `OK` already on
+  the bottom line. (A plain 85-2 starts BASIC by itself and says `BASIC-G /V2.0`;
+  an 85-3 says `BASIC G /V3.0`, without the hyphen.) No `JUMP` needed on any of
+  them.
 - BASIC-G keeps the spacing you type, so `20 SL = 0` stays as written in the
   notebook.
 - The input line lives at the bottom row of the screen; `OK` is the prompt after
   a program ends.
 - `CHR$(32)` to `CHR$(127)` is plain ASCII, uppercase *and* lowercase. On the
-  **PMD 85-2** every code from 128 up prints an empty box - no Czech diacritics
+  **PMD 85-2 and 2A** every code from 128 up prints an empty box - no Czech diacritics
   at all, which is why `Pepo čau` had to be typed as `PEPO CAU`. Run the same
   dump on a **PMD 85-3** (`-m 3`) and the accented set is there: á č ď ě í ľ ň ó
   ô ř š ť ú ů ý ž and the capitals, in a second font table at 0x153F of
