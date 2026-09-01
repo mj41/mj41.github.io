@@ -38,5 +38,10 @@ and drives it with `xdotool`. Two things make the typing work:
 - `CHR$(32)` to `CHR$(127)` is plain ASCII, uppercase *and* lowercase. Every code
   from 128 up prints an empty box: **the machine had no Czech diacritics at all**,
   which is why `Pepo čau` had to be typed as `PEPO CAU`.
+- BASIC-G's text screen is 48 characters by **26 lines**, not 32: it spaces
+  lines 9 pixels apart, starting 3 pixels down, so about 21 pixels at the bottom
+  of the 288x256 raster are never used. `PRINT AT` clamps the row to 25 - print
+  at 26 or 35 and it all lands on the last line.
 - The fixed version (`RA`, and `GOTO 40` instead of `GOTO 20`) runs: the text
-  walks down the screen, one row per `PAUSE`.
+  walks down the screen, one line per `PAUSE`, and fills all 26 lines in about
+  30 seconds.

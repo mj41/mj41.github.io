@@ -74,15 +74,14 @@ type_lines 'NEW' \
            '40 PAUSE 5' \
            '50 PRINT AT RA, 0; TEXT$' \
            '60 RA = RA + 1' \
-           '70 IF RA > 31 THEN RA = 0' \
-           '80 GOTO 40'
+           '70 GOTO 40'
 shot 06-fixed-typed
 cls
 type_lines 'LIST'
 sleep 2
 shot 07-fixed-list
 type_lines 'RUN'
-sleep 14
+sleep 30
 shot 08-fixed-run
 
 kill $EMU 2>/dev/null

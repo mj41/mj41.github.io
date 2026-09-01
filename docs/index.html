@@ -93,10 +93,10 @@
                     </div>
                     <img class="screen-view screen-view--real" src="images/pmd85-screen.jpg"
                          width="1116" height="833" loading="lazy" decoding="async"
-                         data-caption="And on the machine itself, typed in key by key: a PMD 85-2 with the BASIC-G V2.0 ROM module, 48 columns by 32 rows of green phosphor. No Czech diacritics anywhere in the ROM, so it is PEPO CAU."
+                         data-caption="And on the machine itself, typed in key by key: a PMD 85-2 with the BASIC-G V2.0 ROM module, 48 characters to a line on 288×256 pixels of green phosphor. No Czech diacritics anywhere in the ROM, so it is PEPO CAU."
                          alt="The same BASIC-G listing on the green screen of a PMD 85: BASIC-G /V2.0, 10 GCLEAR, 20 SL = 0, 30 TEXT$ = &quot;PEPO CAU&quot;, 40 PAUSE 5, 50 PRINT AT SL, 0; TEXT$, 60 SL = SL + 1, 70 GOTO 20">
                     <div class="screen-view screen-view--art"
-                         data-caption="Fixed 35 years later: ra for řádek (row), and line 80 jumps to 40 instead of 20, so the counter survives the pass. Line 70 wraps it at the bottom of the 32-row screen.">
+                         data-caption="Fixed 35 years later, in two tokens: ra for řádek (row), and line 70 jumps to 40 instead of 20, so the counter survives the pass.">
                         <div class="code-block">
                             <div class="banner">BASIC-G /V2.0</div>
                             <div>&nbsp;</div>
@@ -106,13 +106,12 @@
                             <div><span class="line-num">40&nbsp;</span><span class="keyword">Pause</span> <span class="number">5</span></div>
                             <div><span class="line-num">50&nbsp;</span><span class="keyword">Print at</span> <span class="fixed">ra</span>, <span class="number">0</span>; Text$</div>
                             <div><span class="line-num">60&nbsp;</span><span class="fixed">ra</span> = <span class="fixed">ra</span> + <span class="number">1</span></div>
-                            <div><span class="line-num">70&nbsp;</span><span class="keyword">If</span> <span class="fixed">ra</span> &gt; <span class="number">31</span> <span class="keyword">Then</span> <span class="fixed">ra</span> = <span class="number">0</span></div>
-                            <div><span class="line-num">80&nbsp;</span><span class="keyword">Goto</span> <span class="fixed">40</span></div>
+                            <div><span class="line-num">70&nbsp;</span><span class="keyword">Goto</span> <span class="fixed">40</span></div>
                         </div>
                     </div>
                     <img class="screen-view" src="images/pmd85-fixed-run.jpg"
                          width="1116" height="833" loading="lazy" decoding="async"
-                         data-caption="And the fixed version running on the same machine: PEPO CAU finally walks down the screen, one row per PAUSE."
+                         data-caption="And the fixed version running on the same machine: PEPO CAU walks down the screen, one line per PAUSE, until all 26 lines BASIC-G can print on are full. The gap at the bottom is the machine — it spaces lines 9 pixels apart and runs out before the tube does."
                          alt="The fixed program running on a PMD 85: PEPO CAU printed on every row down the green screen">
                     <div class="screen-controls">
                         <button class="sc-btn" type="button" data-act="prev" aria-label="Previous">‹</button>
