@@ -42,6 +42,11 @@ and drives it with `xdotool`. Two things make the typing work:
   lines 9 pixels apart, starting 3 pixels down, so about 21 pixels at the bottom
   of the 288x256 raster are never used. `PRINT AT` clamps the row to 25 - print
   at 26 or 35 and it all lands on the last line.
+  The 9-pixel pitch is cross-checked against a photograph of real hardware: on
+  the PMD-60.1 shot at boginjr.com the fitted line pitch is 16.02 px and the
+  character pitch 12.92 px, a ratio of 1.240 against 1.266 predicted for 9 rows
+  (1.125 for 8, 1.406 for 10). Running the same `DUMP` command in the emulator
+  and scaling to the photo's pitch puts every text row on the same comb.
 - The fixed version (`RA`, and `GOTO 40` instead of `GOTO 20`) runs: the text
   walks down the screen, one line per `PAUSE`, and fills all 26 lines in about
   30 seconds.
