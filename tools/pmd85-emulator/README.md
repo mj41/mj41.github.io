@@ -35,9 +35,12 @@ and drives it with `xdotool`. Two things make the typing work:
   notebook.
 - The input line lives at the bottom row of the screen; `OK` is the prompt after
   a program ends.
-- `CHR$(32)` to `CHR$(127)` is plain ASCII, uppercase *and* lowercase. Every code
-  from 128 up prints an empty box: **the machine had no Czech diacritics at all**,
-  which is why `Pepo čau` had to be typed as `PEPO CAU`.
+- `CHR$(32)` to `CHR$(127)` is plain ASCII, uppercase *and* lowercase. On the
+  **PMD 85-2** every code from 128 up prints an empty box - no Czech diacritics
+  at all, which is why `Pepo čau` had to be typed as `PEPO CAU`. Run the same
+  dump on a **PMD 85-3** (`-m 3`) and the accented set is there: á č ď ě í ľ ň ó
+  ô ř š ť ú ů ý ž and the capitals, in a second font table at 0x153F of
+  `monit3.rom`. The diacritics arrived with the next model.
 - BASIC-G's text screen is 48 characters by **26 lines**, not 32: it spaces
   lines 9 pixels apart, starting 3 pixels down, so about 21 pixels at the bottom
   of the 288x256 raster are never used. `PRINT AT` clamps the row to 25 - print
